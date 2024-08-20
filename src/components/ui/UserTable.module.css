@@ -1,0 +1,31 @@
+.responsiveTable {
+  overflow-x: auto;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media screen and (width <= 768px) {
+  .mobileOnly {
+    display: block;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .responsiveTable :global(.ant-table-thead) {
+    display: none;
+  }
+
+  .responsiveTable :global(.ant-table-row) {
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 0;
+  }
+
+  .responsiveTable :global(.ant-table-row > td) {
+    display: block;
+    border-bottom: none;
+    padding: 8px 16px;
+  }
+}
