@@ -1,8 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { Typography, Card, Space } from 'antd'
 
 import UserTable from '@/components/ui/table'
 import { People } from '@/schemas/people'
+
+const { Title } = Typography
 
 type Props = {}
 
@@ -30,7 +33,14 @@ function ContentPage({}: Props) {
     }
   }
 
-  return <UserTable data={people} loading={loading} />
+  return (
+    <Space direction="vertical" size="large" style={{ width: '100%', padding: '24px' }}>
+      <Title level={2}>User Directory</Title>
+      <Card>
+        <UserTable data={people} loading={loading} />
+      </Card>
+    </Space>
+  )
 }
 
 export default ContentPage
