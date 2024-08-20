@@ -106,8 +106,13 @@ const RootLayout: React.FC<Props> = ({ children }) => {
       </Layout.Sider>
 
       <Layout>
-        <Layout.Header className="z-[100] !bg-white px-3.5 shadow-[0_0_5px_0_rgb(0_0_0_/_20%)]">
-          Learn Ant Design in Minutes with yanchris.tech
+        <Layout.Header className="z-[100] flex items-center justify-between !bg-white px-3.5 shadow-[0_0_5px_0_rgb(0_0_0_/_20%)]">
+          <div className="text-lg sm:text-xl lg:text-2xl">Learn Ant Design in Minutes</div>
+          <div className="hidden sm:block">
+            <a className="text-black" href="https://yanchris.tech">
+              @yancheesetofer
+            </a>
+          </div>
         </Layout.Header>
 
         <Layout.Content className="m-0 flex flex-col overflow-auto p-3.5">
