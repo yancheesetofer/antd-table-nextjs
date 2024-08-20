@@ -1,48 +1,46 @@
 import React from 'react'
 import { Table } from 'antd'
+import type { ColumnsType, TableProps } from 'antd/es/table'
 
 import { People } from '@/schemas/people'
 
-type Props = {}
+type Props = {
+  data: People[]
+  loading: boolean
+}
 
-export const columns = [
-  {
-    title: 'First Name',
-    dataIndex: 'firstName',
-    key: 'firstName',
-  },
-  {
-    title: 'Last Name',
-    dataIndex: 'lastName',
-    key: 'lastName',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'Age',
-    key: 'Age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'Address',
-    key: 'Address',
-  },
-]
+const UserTable: React.FC<Props> = ({ data, loading }) => {
+  const columns: ColumnsType<People> = [
+    {
+      title: 'First Name',
+      dataIndex: 'firstName',
+      key: 'firstName',
+      sorter: (a, b) => a.firstName.localeCompare(b.firstName),
+    },
+    {
+      title: 'Last Name',
+      dataIndex: 'lastName',
+      key: 'lastName',
+      sorter: (a, b) => a.lastName.localeCompare(b.lastName),
+    },
+    {
+      title: 'Age',
+      dataIndex: 'Age',
+      key: 'Age',
+      sorter: (a, b) => Number(a.Age) - Number(b.Age),
+    },
+    {
+      title: 'Address',
+      dataIndex: 'Address',
+      key: 'Address',
+    },
+  ]
 
-async function UserTable({}: Props) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/people`, {
-    method: 'GET',
-  })
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch people data')
+  const onChange: TableProps<People>['onChange'] = (pagination, filters, sorter, extra) => {
+    console.log('Table params:', pagination, filters, sorter, extra)
   }
 
-  //just double check :)
-  const people: People[] = await response.json()
-
-  console.log(people)
-
-  return <Table dataSource={people} columns={columns} />
+  return <Table columns={columns} dataSource={data} loading={loading} onChange={onChange} />
 }
 
 export default UserTable
