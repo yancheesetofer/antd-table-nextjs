@@ -12,6 +12,11 @@
 
 the set up is so easy you can just type `pnpm install; pnpm run dev` and you are good to go.
 
+### Responsiveness
+cheffkiss
+<img width="1436" alt="image" src="https://github.com/user-attachments/assets/eb2648d4-773e-4155-a5e6-beba1530a7f4">
+
+
 ## Legacy
 
 This template will help you start developing in `NextJs` using `React` `Zustand` `TypeScript` `TailwindCSS`.
