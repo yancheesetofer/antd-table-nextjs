@@ -91,7 +91,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
             collapsed ? 'text-[40px] leading-[40px]' : 'text-[135px] leading-[135px]',
           )}
         >
-          QA
+          yc
         </div>
 
         <Menu
