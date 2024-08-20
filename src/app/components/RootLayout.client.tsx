@@ -56,7 +56,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
             <LogoIcon fill="#fff" />
           </div>
 
-          {!collapsed && <div>QA</div>}
+          {!collapsed && <div>yc</div>}
         </div>
 
         <Drawer
