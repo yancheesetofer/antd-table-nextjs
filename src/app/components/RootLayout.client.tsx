@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import { Layout, Menu, Drawer, type MenuProps } from 'antd'
-import { HomeFilled, RightOutlined, LeftOutlined } from '@ant-design/icons'
+import { HomeFilled, RightOutlined, LeftOutlined, TableOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/navigation'
 import clsx from 'clsx'
 
@@ -17,7 +17,10 @@ type Props = { children: React.ReactNode }
 
 const RootLayout: React.FC<Props> = ({ children }) => {
   const router = useRouter()
-  const items = useRenderMenusItems([{ name: 'Home', path: 'home', icon: <HomeFilled /> }])
+  const items = useRenderMenusItems([
+    { name: 'Home', path: 'home', icon: <HomeFilled /> },
+    { name: 'Content', path: 'content', icon: <TableOutlined /> },
+  ])
   const { selectedKeys, defaultOpenKeys } = useMenuSelectedKeys()
 
   const [collapsed, setCollapsed] = useState(true)
@@ -104,12 +107,19 @@ const RootLayout: React.FC<Props> = ({ children }) => {
 
       <Layout>
         <Layout.Header className="z-[100] !bg-white px-3.5 shadow-[0_0_5px_0_rgb(0_0_0_/_20%)]">
-          Header
+          Learn Ant Design in Minutes with yanchris.tech
         </Layout.Header>
 
         <Layout.Content className="m-0 flex flex-col overflow-auto p-3.5">
           {children}
         </Layout.Content>
+        <Layout.Footer className="z-[100] !bg-white">
+          <div>
+            <a className="text-black" href="https://yanchris.tech">
+              yanchris.tech
+            </a>
+          </div>
+        </Layout.Footer>
       </Layout>
     </Layout>
   )
